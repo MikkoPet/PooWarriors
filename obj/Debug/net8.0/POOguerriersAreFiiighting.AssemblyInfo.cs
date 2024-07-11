@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("POOguerriersAreFiiighting")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e4df3cc0559a99e5a363aad5278e3f1c8ee86ede")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+862e3fb7c8415f8145a43650d098f51aef833885")]
 [assembly: System.Reflection.AssemblyProductAttribute("POOguerriersAreFiiighting")]
 [assembly: System.Reflection.AssemblyTitleAttribute("POOguerriersAreFiiighting")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
