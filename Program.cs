@@ -3,17 +3,17 @@ using System;
 
 string winners;
 
-Nain danDwarf = new Nain("Dan the dwarf", 50, 1, 3);
-Elf ralphElf = new Elf("Ralph the elf", 22, 3);
-Guerrier willyGuerrier = new Guerrier("Willy the Warrior", 50, 2);
+Tank shanksie = new Tank("Shank", 50, 1, 3);
+Mage cassie = new Mage("Cass", 22, 3);
+Puncher willyGuerrier = new Puncher("Willy the Warrior", 50, 2);
 
-Nain davidDwarf = new Nain("David the dwarf", 50, 1, 3);
-Elf enzoElf = new Elf("Enzo the Elf", 22, 3);
-Guerrier georgeGuerrier = new Guerrier("Georges the 'Guerrier'", 50, 2);
+Tank davidDwarf = new Tank("David the dwarf", 50, 1, 3);
+Ranger enzoElf = new Ranger("Enzo the Elf", 22, 3);
+Fighter georgeGuerrier = new Fighter("Georges the 'Guerrier'", 50, 2);
 
 
-Guerrier[] teamA = [ ralphElf, willyGuerrier, danDwarf];
-Guerrier[] teamB = [ davidDwarf, enzoElf, georgeGuerrier];
+Fighter[] teamA = [ cassie, willyGuerrier, shanksie];
+Fighter[] teamB = [ davidDwarf, enzoElf, georgeGuerrier];
 
 int iTeamA = 0;
 int iTeamB = 0;
@@ -22,7 +22,7 @@ while (iTeamA < teamA.Length && iTeamB < teamB.Length)
 {
     while (teamA[iTeamA].LifeStatus() && teamB[iTeamB].LifeStatus())
     {
-        if (Guerrier.turns % 2 == 0)
+        if (Fighter.turns % 2 == 0)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             teamB[iTeamB].ReceiveDamage(teamA[iTeamA].SendDamage());
@@ -33,7 +33,7 @@ while (iTeamA < teamA.Length && iTeamB < teamB.Length)
             teamA[iTeamA].ReceiveDamage(teamB[iTeamB].SendDamage());
 
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("This concludes turn " + Guerrier.turns / 2);
+            Console.WriteLine("This concludes turn " + Fighter.turns / 2);
             Console.WriteLine("Press any key to continue. \n");
             Console.ReadKey();
 
@@ -41,9 +41,9 @@ while (iTeamA < teamA.Length && iTeamB < teamB.Length)
     }
 
     Console.ForegroundColor = ConsoleColor.Green;
-    Console.WriteLine($"\n {(teamA[iTeamA].LifeStatus() ? teamA[iTeamA].Name : teamB[iTeamB].Name)} has won the fight in {(Guerrier.turns / 2)} turns. \n");
+    Console.WriteLine($"\n {(teamA[iTeamA].LifeStatus() ? teamA[iTeamA].Name : teamB[iTeamB].Name)} has won the fight in {(Fighter.turns / 2)} turns. \n");
 
-    Guerrier.resetTurns();
+    Fighter.resetTurns();
 
     if (teamA[iTeamA].LifeStatus())
     {
@@ -52,7 +52,7 @@ while (iTeamA < teamA.Length && iTeamB < teamB.Length)
     else
     {
         iTeamA++;
-        Guerrier.turns++;
+        Fighter.turns++;
     }
 
 }

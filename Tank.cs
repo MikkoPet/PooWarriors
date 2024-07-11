@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace POOguerriersAreFiiighting
 {
-    internal class Nain : Guerrier
+    internal class Tank : Fighter
     {
 
         private int _armour;
@@ -30,10 +30,11 @@ namespace POOguerriersAreFiiighting
             }
         }
 
-        public Nain(string newName, int newHealth, int newDiceAmt, int newArmour) 
+        public Tank(string newName, int newHealth, int newDiceAmt, int newArmour) 
             : base (newName, newHealth, newDiceAmt)
         {
             Armour = newArmour ;
+            _speed = 2;
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace POOguerriersAreFiiighting
 {
-    internal class Guerrier
+    internal class Fighter
     {
         #region attributes
         private string  _name;
@@ -15,6 +15,7 @@ namespace POOguerriersAreFiiighting
         private int     _minAttackPotency;
         private int     _maxAttackPotency;
         private bool    _isAlive;
+        protected int   _speed;
         #endregion
 
 
@@ -25,6 +26,7 @@ namespace POOguerriersAreFiiighting
         protected int Min { get => _minAttackPotency; set => _minAttackPotency = value; }
         protected int Max { get => _maxAttackPotency; set => _maxAttackPotency = value; }
         protected bool IsAlive { get => _isAlive; set => _isAlive = value; }
+        public int Speed { get => _speed; }
         #endregion
 
 
@@ -58,7 +60,7 @@ namespace POOguerriersAreFiiighting
         public bool LifeStatus()
         { return _isAlive; }
 
-        public Guerrier(string newName, int newHealth, int newDiceAmt)
+        public Fighter(string newName, int newHealth, int newDiceAmt)
         {
             Name = newName;
             Health = newHealth;
@@ -66,6 +68,7 @@ namespace POOguerriersAreFiiighting
             IsAlive = true;
             Min = 1;
             Max = 7;
+            _speed = 3;
         }
 
     }
