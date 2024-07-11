@@ -12,3 +12,4 @@ C:\Users\Utilisateur\source\repos\POOguerriersAreFiiighting\POOguerriersAreFiiig
 C:\Users\Utilisateur\source\repos\POOguerriersAreFiiighting\POOguerriersAreFiiighting\obj\Debug\net8.0\POOguerriersAreFiiighting.pdb
 C:\Users\Utilisateur\source\repos\POOguerriersAreFiiighting\POOguerriersAreFiiighting\obj\Debug\net8.0\POOguerriersAreFiiighting.genruntimeconfig.cache
 C:\Users\Utilisateur\source\repos\POOguerriersAreFiiighting\POOguerriersAreFiiighting\obj\Debug\net8.0\ref\POOguerriersAreFiiighting.dll
+C:\Users\Utilisateur\source\repos\POOguerriersAreFiiighting\POOguerriersAreFiiighting\obj\Debug\net8.0\POOguerriersAreFiiighting.sourcelink.json

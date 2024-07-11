@@ -1,41 +1,45 @@
 ﻿using POOguerriersAreFiiighting;
 
-void attack(Guerrier warriorAttacking, Guerrier warriorAttacked)
+Guerrier winner;
+
+Guerrier defineWinner(Guerrier warriorFirst, Guerrier warriorSecond)
 {
-    int damage = warriorAttacking.TurnDamage() - warriorAttacked.Armour;
-
-
-    if (warriorAttacked.Health >= damage)
+    if (warriorFirst.Health == 0)
     {
-        warriorAttacked.Health -= damage;
+        return warriorSecond;
     }
     else
     {
-        warriorAttacked.Health = 0;
+        return warriorFirst;
     }
-
-    Console.WriteLine(warriorAttacking.Name + " attacks " + warriorAttacked.Name 
-                        + " for " + damage + " damage. " 
-                        + warriorAttacked.Name + "'s health is now at " + warriorAttacked.Health);
 }
 
 Guerrier warrior1 = new Nain("Dan the dwarf", 50, 1, 3);
-Guerrier warrior2 = new Elf("Ralph the elf", 25, 2);
+Guerrier warrior2 = new Elf("Ralph the elf", 22, 3);
+winner = new Guerrier("", 0, 0);
 
 while (warrior1.Health > 0 && warrior2.Health > 0)
 {
     if (Guerrier.turns % 2 == 0)
     {
         Console.ForegroundColor = ConsoleColor.Yellow;
-        attack(warrior1, warrior2);
+        warrior2.OuchOuch(warrior1.TurnDamage());
     }
     else
     {
         Console.ForegroundColor = ConsoleColor.Cyan;
-        attack(warrior2, warrior1);
+        warrior1.OuchOuch(warrior2.TurnDamage());
+
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine("This concludes turn " + Guerrier.turns / 2);
+        Console.WriteLine("Press any key to continue. \n \n");
+        Console.ReadKey();
+
     }
-    
 }
 
+winner = defineWinner(warrior2, warrior1);
+
+Console.ForegroundColor = ConsoleColor.Green;
+Console.WriteLine($"\n \n After {Guerrier.turns} turns, {winner.Name} has won the fight");
 Console.ForegroundColor = ConsoleColor.White;
-Console.WriteLine("The fight has ended after " + Guerrier.turns + " turns.");
