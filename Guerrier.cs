@@ -12,12 +12,11 @@ namespace POOguerriersAreFiiighting
         private string  _name;
         private int     _health;
         private int     _diceAmt;
-        private int _minAttackPotency;
-        private int _maxAttackPotency;
+        private int     _minAttackPotency;
+        private int     _maxAttackPotency;
         private bool    _isAlive;
         #endregion
 
-        public static int turns = 0;
 
         #region properties
         public string Name { get => _name; set => _name = value == String.Empty ? "Warrior" : value; }
@@ -26,8 +25,15 @@ namespace POOguerriersAreFiiighting
         protected int Min { get => _minAttackPotency; set => _minAttackPotency = value; }
         protected int Max { get => _maxAttackPotency; set => _maxAttackPotency = value; }
         protected bool IsAlive { get => _isAlive; set => _isAlive = value; }
-
         #endregion
+
+
+        public static int turns = 0;
+         
+        public static void resetTurns()
+        {
+            turns = 0;
+        }
 
         public virtual int SendDamage()
         {
