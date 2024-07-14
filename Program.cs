@@ -5,14 +5,14 @@ string winners;
 
 Tank shanksie = new Tank("Shank", 50, 1, 3);
 Mage cassie = new Mage("Cass", 22, 3);
-Puncher willyGuerrier = new Puncher("Willy the Warrior", 50, 2);
+Puncher auntLinda = new Puncher("Auntie Linda", 50, 2);
 
-Tank davidDwarf = new Tank("David the dwarf", 50, 1, 3);
-Ranger enzoElf = new Ranger("Enzo the Elf", 22, 3);
-Fighter georgeGuerrier = new Fighter("Georges the 'Guerrier'", 50, 2);
+Tank david = new Tank("David", 50, 1, 3);
+Ranger enzo = new Ranger("Enzo", 22, 3);
+Fighter george = new Fighter("Georges", 50, 2);
 
 
-Fighter[] teamA = [ cassie, willyGuerrier, shanksie];
+Fighter[] teamA = [ cassie, auntLinda, shanksie];
 Fighter[] teamB = [ davidDwarf, enzoElf, georgeGuerrier];
 
 int iTeamA = 0;
