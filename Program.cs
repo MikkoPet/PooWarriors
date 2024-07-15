@@ -44,6 +44,7 @@ while (teamAAlive.Count() > 0 && teamBAlive.Count() > 0)
         {
             if (teamAAlive[i].GetType() == typeof(Tank))
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 teamBAlive[0].ReceiveDamage(teamAAlive[i].SendDamage());
             }
         }
@@ -52,6 +53,7 @@ while (teamAAlive.Count() > 0 && teamBAlive.Count() > 0)
         {
             if (teamBAlive[i].GetType() == typeof(Tank))
             {
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 teamAAlive[0].ReceiveDamage(teamBAlive[i].SendDamage());
             }
         }
@@ -63,6 +65,7 @@ while (teamAAlive.Count() > 0 && teamBAlive.Count() > 0)
         {
             if (teamAAlive[i].GetType() == typeof(Healer))
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 teamAAlive[0].ReceiveHeal(teamAAlive[i].SendDamage());
             }
         }
@@ -71,6 +74,7 @@ while (teamAAlive.Count() > 0 && teamBAlive.Count() > 0)
         {
             if (teamBAlive[i].GetType() == typeof(Healer))
             {
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 teamBAlive[0].ReceiveHeal(teamBAlive[i].SendDamage());
             }
         }
@@ -82,6 +86,7 @@ while (teamAAlive.Count() > 0 && teamBAlive.Count() > 0)
         {
             if (teamAAlive[i].GetType() == typeof(Puncher))
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 teamBAlive[0].ReceiveDamage(teamAAlive[i].SendDamage());
             }
         }
@@ -90,6 +95,7 @@ while (teamAAlive.Count() > 0 && teamBAlive.Count() > 0)
         {
             if (teamBAlive[i].GetType() == typeof(Puncher))
             {
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 teamAAlive[0].ReceiveDamage(teamBAlive[i].SendDamage());
             }
         }
@@ -101,6 +107,7 @@ while (teamAAlive.Count() > 0 && teamBAlive.Count() > 0)
         {
             if (teamAAlive[i].GetType() == typeof(Ranger))
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 teamBAlive[0].ReceiveDamage(teamAAlive[i].SendDamage());
             }
         }
@@ -109,6 +116,7 @@ while (teamAAlive.Count() > 0 && teamBAlive.Count() > 0)
         {
             if (teamBAlive[i].GetType() == typeof(Ranger))
             {
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 teamAAlive[0].ReceiveDamage(teamBAlive[i].SendDamage());
             }
         }
@@ -120,6 +128,7 @@ while (teamAAlive.Count() > 0 && teamBAlive.Count() > 0)
         {
             if (teamAAlive[i].GetType() == typeof(Slasher))
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 teamBAlive[0].ReceiveDamage(teamAAlive[i].SendDamage());
             }
         }
@@ -128,6 +137,7 @@ while (teamAAlive.Count() > 0 && teamBAlive.Count() > 0)
         {
             if (teamBAlive[i].GetType() == typeof(Slasher))
             {
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 teamAAlive[0].ReceiveDamage(teamBAlive[i].SendDamage());
             }
         }
@@ -139,6 +149,7 @@ while (teamAAlive.Count() > 0 && teamBAlive.Count() > 0)
         {
             if (teamAAlive[i].GetType() == typeof(Mage))
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 teamBAlive[0].ReceiveDamage(teamA[i].SendDamage());
             }
         }
@@ -147,12 +158,13 @@ while (teamAAlive.Count() > 0 && teamBAlive.Count() > 0)
         {
             if (teamBAlive[i].GetType() == typeof(Mage))
             {
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 teamAAlive[0].ReceiveDamage(teamB[i].SendDamage());
             }
         }
     }
 
-
+    Console.ForegroundColor = ConsoleColor.White;
     if (Fighter.hasAttacked)
     {
         foreach (Fighter teammate in teamA)
