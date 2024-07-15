@@ -14,7 +14,7 @@ namespace POOguerriersAreFiiighting
         {
             Min = 2;
             Max = 7;
-            _speed = 4;
+            EnmityMultiplier = 1;
         }
     }
 }

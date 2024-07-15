@@ -22,7 +22,7 @@ namespace POOguerriersAreFiiighting
 
 
             Console.WriteLine($"{Name}'s armour reduces the hit by {Armour}'s points of damage." +
-                                $"\n {Name}'s health is reduced to {Health}.");
+                                $"\n {Name}'s health is reduced to {Health}. \n");
 
             if (Health == 0)
             {
@@ -34,7 +34,7 @@ namespace POOguerriersAreFiiighting
             : base (newName, newHealth, newDiceAmt)
         {
             Armour = newArmour ;
-            _speed = 2;
+            EnmityMultiplier = 100;
         }
     }
 }

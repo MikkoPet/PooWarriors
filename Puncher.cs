@@ -11,7 +11,6 @@ namespace POOguerriersAreFiiighting
         public Puncher(string newName, int newHealth, int newDiceAmt)
             : base(newName, newHealth, newDiceAmt)
         {
-            _speed = 5;
         }
     }
 }

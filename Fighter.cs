@@ -15,7 +15,8 @@ namespace POOguerriersAreFiiighting
         private int     _minAttackPotency;
         private int     _maxAttackPotency;
         private bool    _isAlive;
-        protected int   _speed;
+        private int     _enmity;
+        private int     _enmityMultiplier;
         #endregion
 
 
@@ -26,22 +27,21 @@ namespace POOguerriersAreFiiighting
         protected int Min { get => _minAttackPotency; set => _minAttackPotency = value; }
         protected int Max { get => _maxAttackPotency; set => _maxAttackPotency = value; }
         protected bool IsAlive { get => _isAlive; set => _isAlive = value; }
-        public int Speed { get => _speed; }
+        public int Enmity { get => _enmity; set => _enmity = value; }
+        public int EnmityMultiplier { get => _enmityMultiplier; set => _enmityMultiplier = value; }
         #endregion
 
 
-        public static int turns = 0;
+        public static int turns = 1;
+        public static bool hasAttacked = false;
          
-        public static void resetTurns()
-        {
-            turns = 0;
-        }
 
         public virtual int SendDamage()
         {
-            turns++;
             int damage = new Random().Next(Min * DiceAmt, Max * DiceAmt);
             Console.WriteLine($"{Name} attacks for {damage} damage.");
+            Enmity += damage * EnmityMultiplier;
+            hasAttacked = true;
             return damage;
         }
 
@@ -49,12 +49,18 @@ namespace POOguerriersAreFiiighting
         {
             Health = Health < damage ? Health = 0 
                                        : Health -= damage;
-            Console.WriteLine($"{Name}'s health is reduced to {Health}.");
+            Console.WriteLine($"{Name}'s health is reduced to {Health}. \n");
 
             if (Health == 0)
             {
                 IsAlive = false;
             }
+        }
+
+        public void ReceiveHeal(int heal)
+        {
+            Console.WriteLine($"{Name} regenerates {heal} health from the spell.\n");
+            Health += heal;
         }
 
         public bool LifeStatus()
@@ -68,7 +74,8 @@ namespace POOguerriersAreFiiighting
             IsAlive = true;
             Min = 1;
             Max = 7;
-            _speed = 3;
+            Enmity = 0;
+            EnmityMultiplier = 3;
         }
 
     }

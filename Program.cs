@@ -1,87 +1,207 @@
 ﻿using POOguerriersAreFiiighting;
 using System;
+using System.Runtime.ExceptionServices;
 
-string winners;
+string winners = String.Empty;
 
-Tank shanksie = new Tank("Shank", 50, 1, 3);
-Mage cassie = new Mage("Cass", 20, 5);
-Puncher linda = new Puncher("Linda", 22, 3);
-Fighter rae = new Fighter("Rae", 30, 3);
-Healer pink = new Healer("Pink", 15, 2);
+Tank shanksie = new Tank("Shank the Tank", 50, 1, 3);
+Mage cassie = new Mage("Cass the Mage", 20, 5);
+Puncher linda = new Puncher("Auntie Linda", 22, 3);
+Slasher rae = new Slasher("Rae the Warrior", 30, 3);
+Healer pink = new Healer("Pink the Healer", 15, 3);
 
-Tank david = new Tank("David", 50, 1, 3);
-Ranger enzo = new Ranger("Enzo", 22, 3);
-Fighter george = new Fighter("Georges", 50, 2);
-
-
-Fighter[] teamA = [ ];
-Fighter[] teamB = [ ];
+Tank terminator = new Tank("The Terminator", 50, 1, 2);
+Ranger sugar = new Ranger("Sugar the Archer", 22, 3);
+Slasher george = new Slasher("Georges, Swordsman for hire", 50, 2);
+Healer avarae = new Healer("Avarae the Healer", 20, 2);
+Mage pearl = new Mage("Pearl the Mage", 25, 3);
 
 
-/* 
-WE NEED:
-    teamDeaths = for A & B, foreach (guy in teamX) { if !guy.LifeStat iterate counter }
-    would need to run after each turn?
+Fighter[] teamA = [shanksie, rae, cassie, linda, pink];
+Fighter[] teamB = [terminator, george, sugar, avarae, pearl];
 
-    targetTeamA & targetTeamB defines who they attack, and who the healers heal.
-    target order Tanks > Fightr > Punch > Mage > Ranged > Healer
-    if target dies switch to next?
-    
- */
+List<Fighter> teamAAlive = new List<Fighter>();
+List<Fighter> teamBAlive = new List<Fighter>();
 
-#region basic program
+foreach (Fighter teammate in teamA)
+{ teamAAlive.Add(teammate); }
 
-//int iTeamA = 0;
-//int iTeamB = 0;
+foreach (Fighter teammate in teamB)
+{ teamBAlive.Add(teammate); }
 
-//while (iTeamA < teamA.Length && iTeamB < teamB.Length)
-//{
-//    while (teamA[iTeamA].LifeStatus() && teamB[iTeamB].LifeStatus())
-//    {
-//        if (Fighter.turns % 2 == 0)
-//        {
-//            Console.ForegroundColor = ConsoleColor.Yellow;
-//            teamB[iTeamB].ReceiveDamage(teamA[iTeamA].SendDamage());
-//        }
-//        else
-//        {
-//            Console.ForegroundColor = ConsoleColor.Cyan;
-//            teamA[iTeamA].ReceiveDamage(teamB[iTeamB].SendDamage());
 
-//            Console.ForegroundColor = ConsoleColor.White;
-//            Console.WriteLine("This concludes turn " + Fighter.turns / 2);
-//            Console.WriteLine("Press any key to continue. \n");
-//            Console.ReadKey();
+//what about a team with multiple of a same role?
+//foreach with array of indexes?
 
-//        }
-//    }
+Console.WriteLine("Teams have been built.");
 
-//    Console.ForegroundColor = ConsoleColor.Green;
-//    Console.WriteLine($"\n {(teamA[iTeamA].LifeStatus() ? teamA[iTeamA].Name : teamB[iTeamB].Name)} has won the fight in {(Fighter.turns / 2)} turns. \n");
+while (teamAAlive.Count() > 0 && teamBAlive.Count() > 0)
+{
 
-//    Fighter.resetTurns();
+    if (Fighter.turns == 1)
+    {
+        for (int i = 0; i < teamAAlive.Count(); i++)
+        {
+            if (teamAAlive[i].GetType() == typeof(Tank))
+            {
+                teamBAlive[0].ReceiveDamage(teamAAlive[i].SendDamage());
+            }
+        }
 
-//    if (teamA[iTeamA].LifeStatus())
-//    {
-//        iTeamB++;
-//    }
-//    else
-//    {
-//        iTeamA++;
-//        Fighter.turns++;
-//    }
+        for (int i = 0; i < teamBAlive.Count(); i++)
+        {
+            if (teamBAlive[i].GetType() == typeof(Tank))
+            {
+                teamAAlive[0].ReceiveDamage(teamBAlive[i].SendDamage());
+            }
+        }
+    }
 
-//}
+    if (Fighter.turns == 60)
+    {
+        for (int i = 0; i < teamAAlive.Count(); i++)
+        {
+            if (teamAAlive[i].GetType() == typeof(Healer))
+            {
+                teamAAlive[0].ReceiveHeal(teamAAlive[i].SendDamage());
+            }
+        }
 
-//if (iTeamA == 2)
-//{
-//    winners = $"{teamA[0].Name}, {teamA[1].Name} & {teamA[2].Name}";
-//}
-//else
-//{
-//    winners = $"{teamB[0].Name}, {teamB[1].Name} & {teamB[2].Name}";
-//}
-# endregion
+        for (int i = 0; i < teamBAlive.Count(); i++)
+        {
+            if (teamBAlive[i].GetType() == typeof(Healer))
+            {
+                teamBAlive[0].ReceiveHeal(teamBAlive[i].SendDamage());
+            }
+        }
+    }
+
+    if (Fighter.turns % 12 == 0)
+    {
+        for (int i = 0; i < teamAAlive.Count(); i++)
+        {
+            if (teamAAlive[i].GetType() == typeof(Puncher))
+            {
+                teamBAlive[0].ReceiveDamage(teamAAlive[i].SendDamage());
+            }
+        }
+
+        for (int i = 0; i < teamBAlive.Count(); i++)
+        {
+            if (teamBAlive[i].GetType() == typeof(Puncher))
+            {
+                teamAAlive[0].ReceiveDamage(teamBAlive[i].SendDamage());
+            }
+        }
+    }
+
+    if (Fighter.turns % 15 == 0)
+    {
+        for (int i = 0; i < teamAAlive.Count(); i++)
+        {
+            if (teamAAlive[i].GetType() == typeof(Ranger))
+            {
+                teamBAlive[0].ReceiveDamage(teamAAlive[i].SendDamage());
+            }
+        }
+
+        for (int i = 0; i < teamBAlive.Count(); i++)
+        {
+            if (teamBAlive[i].GetType() == typeof(Ranger))
+            {
+                teamAAlive[0].ReceiveDamage(teamBAlive[i].SendDamage());
+            }
+        }
+    }
+
+    if (Fighter.turns % 20 == 0)
+    {
+        for (int i = 0; i < teamAAlive.Count(); i++)
+        {
+            if (teamAAlive[i].GetType() == typeof(Slasher))
+            {
+                teamBAlive[0].ReceiveDamage(teamAAlive[i].SendDamage());
+            }
+        }
+
+        for (int i = 0; i < teamBAlive.Count(); i++)
+        {
+            if (teamBAlive[i].GetType() == typeof(Slasher))
+            {
+                teamAAlive[0].ReceiveDamage(teamBAlive[i].SendDamage());
+            }
+        }
+    }
+
+    if (Fighter.turns % 30 == 0)
+    {
+        for (int i = 0; i < teamAAlive.Count(); i++)
+        {
+            if (teamAAlive[i].GetType() == typeof(Mage))
+            {
+                teamBAlive[0].ReceiveDamage(teamA[i].SendDamage());
+            }
+        }
+
+        for (int i = 0; i < teamBAlive.Count(); i++)
+        {
+            if (teamBAlive[i].GetType() == typeof(Mage))
+            {
+                teamAAlive[0].ReceiveDamage(teamB[i].SendDamage());
+            }
+        }
+    }
+
+
+    if (Fighter.hasAttacked)
+    {
+        foreach (Fighter teammate in teamA)
+        {
+            if (!teammate.LifeStatus())
+            {
+                teamAAlive.Remove(teammate);
+            }
+        }
+
+        foreach (Fighter teammate in teamB)
+        {
+            if (!teammate.LifeStatus())
+            {
+                teamBAlive.Remove(teammate);
+            }
+        }
+
+        teamAAlive = teamAAlive.OrderBy(teammate => teammate.Enmity).ToList();
+        teamAAlive.Reverse();
+        teamBAlive = teamBAlive.OrderBy(teammate => teammate.Enmity).ToList();
+        teamBAlive.Reverse();
+
+        Fighter.hasAttacked = false;
+    }
+
+    Fighter.turns++;
+    if (Fighter.turns == 61)
+    {
+        Console.WriteLine("The turn has ended. Press any key to continue.");
+        Console.ReadKey();
+        Fighter.turns = 0;
+    }
+
+}
+
+
+if (teamAAlive.Count() != 0)
+{
+    for (int i = 0; i < teamA.Count() - 1; i++)
+    { winners += teamA[i].Name + ", "; }
+    winners += "& " + teamA[teamA.Count() - 1].Name;
+}
+else
+{
+    for (int i = 0; i < teamB.Count() - 1; i++)
+    { winners += teamB[i].Name + ", "; }
+    winners += "& " + teamB[teamB.Count() - 1].Name;
+}
 
 Console.ForegroundColor = ConsoleColor.Green;
 Console.WriteLine($"\n \n {winners} have won the fight");

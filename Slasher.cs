@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace POOguerriersAreFiiighting
 {
-    internal class Mage : Fighter
+    internal class Slasher : Fighter
     {
-        public Mage(string newName, int newHealth, int newDiceAmt)
-    : base(newName, newHealth, newDiceAmt)
-        {
-        }
+        public Slasher(string newName, int newHealth, int newDiceAmt) 
+            :base (newName, newHealth, newDiceAmt)
+        { }
     }
 }
