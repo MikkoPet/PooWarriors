@@ -18,15 +18,6 @@ namespace POOguerriersAreFiiighting
                     teamBAlive[0].ReceiveDamage(teamAAlive[i].SendDamage());
                 }
             }
-
-            for (int i = 0; i < teamBAlive.Count(); i++)
-            {
-                if (teamBAlive[i].GetType() == typeof(Tank))
-                {
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    teamAAlive[0].ReceiveDamage(teamBAlive[i].SendDamage());
-                }
-            }
         }
 
         public static void healerAttack(List<Fighter> teamAAlive, List<Fighter> teamBAlive)
@@ -37,15 +28,6 @@ namespace POOguerriersAreFiiighting
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     teamAAlive[0].ReceiveHeal(teamAAlive[i].SendDamage());
-                }
-            }
-
-            for (int i = 0; i < teamBAlive.Count(); i++)
-            {
-                if (teamBAlive[i].GetType() == typeof(Healer))
-                {
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    teamBAlive[0].ReceiveHeal(teamBAlive[i].SendDamage());
                 }
             }
         }
@@ -60,15 +42,6 @@ namespace POOguerriersAreFiiighting
                     teamBAlive[0].ReceiveDamage(teamAAlive[i].SendDamage());
                 }
             }
-
-            for (int i = 0; i < teamBAlive.Count(); i++)
-            {
-                if (teamBAlive[i].GetType() == typeof(Puncher))
-                {
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    teamAAlive[0].ReceiveDamage(teamBAlive[i].SendDamage());
-                }
-            }
         }
 
         public static void rangerAttack(List<Fighter> teamAAlive, List<Fighter> teamBAlive)
@@ -79,15 +52,6 @@ namespace POOguerriersAreFiiighting
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     teamBAlive[0].ReceiveDamage(teamAAlive[i].SendDamage());
-                }
-            }
-
-            for (int i = 0; i < teamBAlive.Count(); i++)
-            {
-                if (teamBAlive[i].GetType() == typeof(Ranger))
-                {
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    teamAAlive[0].ReceiveDamage(teamBAlive[i].SendDamage());
                 }
             }
         }
@@ -102,15 +66,6 @@ namespace POOguerriersAreFiiighting
                     teamBAlive[0].ReceiveDamage(teamAAlive[i].SendDamage());
                 }
             }
-
-            for (int i = 0; i < teamBAlive.Count(); i++)
-            {
-                if (teamBAlive[i].GetType() == typeof(Slasher))
-                {
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    teamAAlive[0].ReceiveDamage(teamBAlive[i].SendDamage());
-                }
-            }
         }
 
         public static void mageAttack(List<Fighter> teamAAlive, List<Fighter> teamBAlive)
@@ -123,41 +78,23 @@ namespace POOguerriersAreFiiighting
                     teamBAlive[0].ReceiveDamage(teamAAlive[i].SendDamage());
                 }
             }
-
-            for (int i = 0; i < teamBAlive.Count(); i++)
-            {
-                if (teamBAlive[i].GetType() == typeof(Mage))
-                {
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    teamAAlive[0].ReceiveDamage(teamBAlive[i].SendDamage());
-                }
-            }
         }
 
-        public static void cleanUpCorpses(List<Fighter> teamAAlive, List<Fighter> teamBAlive, Fighter[] teamA, Fighter[] teamB)
+        public static void cleanUpCorpses(List<Fighter> teamAAlive, Fighter[] teamA)
         {
             foreach (Fighter teammate in teamA)
             {
                 if (!teammate.LifeStatus())
                 {
                     teamAAlive.Remove(teammate);
-                }
-            }
-
-            foreach (Fighter teammate in teamB)
-            {
-                if (!teammate.LifeStatus())
-                {
-                    teamBAlive.Remove(teammate);
+                    Console.WriteLine($"{teammate} has been KOed! \n");
                 }
             }
         }
-        public static void refreshEnmityList(List<Fighter> teamAAlive, List<Fighter> teamBAlive)
+        public static void refreshEnmityList(List<Fighter> teamAAlive)
         {
             teamAAlive = teamAAlive.OrderBy(teammate => teammate.Enmity).ToList();
             teamAAlive.Reverse();
-            teamBAlive = teamBAlive.OrderBy(teammate => teammate.Enmity).ToList();
-            teamBAlive.Reverse();
         }
         private AttackHandler() { }
     }

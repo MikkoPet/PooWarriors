@@ -49,31 +49,37 @@ while (teamAAlive.Count() > 0 && teamBAlive.Count() > 0)
     if (Fighter.turns == 1)
     {
         AttackHandler.tankAttack(teamAAlive, teamBAlive);
+        AttackHandler.tankAttack(teamBAlive, teamAAlive);
     }
 
     if (Fighter.turns == 60)
     {
         AttackHandler.healerAttack(teamAAlive, teamBAlive);
+        AttackHandler.healerAttack(teamBAlive, teamAAlive);
     }
 
     if (Fighter.turns % 12 == 0)
     {
         AttackHandler.puncherAttack(teamAAlive, teamBAlive);
+        AttackHandler.puncherAttack(teamBAlive, teamAAlive);
     }
 
     if (Fighter.turns % 15 == 0)
     {
         AttackHandler.rangerAttack(teamAAlive, teamBAlive);
+        AttackHandler.rangerAttack(teamBAlive, teamAAlive);
     }
 
     if (Fighter.turns % 20 == 0)
     {
         AttackHandler.slasherAttack(teamAAlive, teamBAlive);
+        AttackHandler.slasherAttack(teamBAlive, teamAAlive);
     }
 
     if (Fighter.turns % 30 == 0)
     {
         AttackHandler.mageAttack(teamAAlive, teamBAlive);
+        AttackHandler.mageAttack(teamBAlive, teamAAlive);
     }
 
     //on ticks where at least an attack occured,
@@ -84,8 +90,10 @@ while (teamAAlive.Count() > 0 && teamBAlive.Count() > 0)
     Console.ForegroundColor = ConsoleColor.White;
     if (Fighter.hasAttacked)
     {
-        AttackHandler.cleanUpCorpses(teamAAlive, teamBAlive, teamA, teamB);
-        AttackHandler.refreshEnmityList(teamAAlive, teamBAlive);
+        AttackHandler.cleanUpCorpses(teamAAlive, teamA);
+        AttackHandler.cleanUpCorpses(teamBAlive, teamB);
+        AttackHandler.refreshEnmityList(teamAAlive);
+        AttackHandler.refreshEnmityList(teamBAlive);
 
         Fighter.hasAttacked = false;
     }
