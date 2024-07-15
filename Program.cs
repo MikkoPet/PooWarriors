@@ -9,13 +9,14 @@ Puncher linda = new Puncher("Linda", 22, 3);
 Fighter rae = new Fighter("Rae", 30, 3);
 Healer pink = new Healer("Pink", 15, 2);
 
-Tank davidDwarf = new Tank("David the dwarf", 50, 1, 3);
-Ranger enzoElf = new Ranger("Enzo the Elf", 22, 3);
-Fighter georgeGuerrier = new Fighter("Georges the 'Guerrier'", 50, 2);
+Tank david = new Tank("David", 50, 1, 3);
+Ranger enzo = new Ranger("Enzo", 22, 3);
+Fighter george = new Fighter("Georges", 50, 2);
 
 
 Fighter[] teamA = [ ];
 Fighter[] teamB = [ ];
+
 
 /* 
 WE NEED:
