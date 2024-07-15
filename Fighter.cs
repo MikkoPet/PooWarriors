@@ -35,6 +35,11 @@ namespace POOguerriersAreFiiighting
         public static int turns = 1;
         public static bool hasAttacked = false;
          
+        //on top of returning damage, an attack generates enmity
+        //this help define the target of the other's team attack, the most enmity = the higher on the target list
+        //different roles generate different enmity, hence the enmity multiplier
+        //this allows mostly for tanks to always be on top of the target list,
+        //& for healers and rangers to typically be lower (to simulate them standing further away from the melee)
 
         public virtual int SendDamage()
         {

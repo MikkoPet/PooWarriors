@@ -29,7 +29,7 @@ namespace POOguerriersAreFiiighting
                 IsAlive = false;
             }
         }
-
+        // tanks have an extra armour attribute which reduces damage, informed on generation of a tank.
         public Tank(string newName, int newHealth, int newDiceAmt, int newArmour) 
             : base (newName, newHealth, newDiceAmt)
         {
