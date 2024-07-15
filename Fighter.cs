@@ -59,6 +59,7 @@ namespace POOguerriersAreFiiighting
             if (Health == 0)
             {
                 IsAlive = false;
+                Console.WriteLine($"{Name} has been KOed! \n");
             }
         }
 

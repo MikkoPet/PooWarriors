@@ -48,37 +48,49 @@ while (teamAAlive.Count() > 0 && teamBAlive.Count() > 0)
 
     if (Fighter.turns == 1)
     {
+        Console.ForegroundColor = ConsoleColor.Yellow;
         AttackHandler.tankAttack(teamAAlive, teamBAlive);
+        Console.ForegroundColor = ConsoleColor.Cyan;
         AttackHandler.tankAttack(teamBAlive, teamAAlive);
     }
 
     if (Fighter.turns == 60)
     {
+        Console.ForegroundColor = ConsoleColor.Yellow;
         AttackHandler.healerAttack(teamAAlive, teamBAlive);
+        Console.ForegroundColor = ConsoleColor.Cyan;
         AttackHandler.healerAttack(teamBAlive, teamAAlive);
     }
 
     if (Fighter.turns % 12 == 0)
     {
+        Console.ForegroundColor = ConsoleColor.Yellow;
         AttackHandler.puncherAttack(teamAAlive, teamBAlive);
+        Console.ForegroundColor = ConsoleColor.Cyan;
         AttackHandler.puncherAttack(teamBAlive, teamAAlive);
     }
 
     if (Fighter.turns % 15 == 0)
     {
+        Console.ForegroundColor = ConsoleColor.Yellow;
         AttackHandler.rangerAttack(teamAAlive, teamBAlive);
+        Console.ForegroundColor = ConsoleColor.Cyan;
         AttackHandler.rangerAttack(teamBAlive, teamAAlive);
     }
 
     if (Fighter.turns % 20 == 0)
     {
+        Console.ForegroundColor = ConsoleColor.Yellow;
         AttackHandler.slasherAttack(teamAAlive, teamBAlive);
+        Console.ForegroundColor = ConsoleColor.Cyan;
         AttackHandler.slasherAttack(teamBAlive, teamAAlive);
     }
 
     if (Fighter.turns % 30 == 0)
     {
+        Console.ForegroundColor = ConsoleColor.Yellow;
         AttackHandler.mageAttack(teamAAlive, teamBAlive);
+        Console.ForegroundColor = ConsoleColor.Cyan;
         AttackHandler.mageAttack(teamBAlive, teamAAlive);
     }
 

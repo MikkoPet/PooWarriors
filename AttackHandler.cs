@@ -14,7 +14,6 @@ namespace POOguerriersAreFiiighting
             {
                 if (teamAAlive[i].GetType() == typeof(Tank))
                 {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
                     teamBAlive[0].ReceiveDamage(teamAAlive[i].SendDamage());
                 }
             }
@@ -26,7 +25,6 @@ namespace POOguerriersAreFiiighting
             {
                 if (teamAAlive[i].GetType() == typeof(Healer))
                 {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
                     teamAAlive[0].ReceiveHeal(teamAAlive[i].SendDamage());
                 }
             }
@@ -38,7 +36,6 @@ namespace POOguerriersAreFiiighting
             {
                 if (teamAAlive[i].GetType() == typeof(Puncher))
                 {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
                     teamBAlive[0].ReceiveDamage(teamAAlive[i].SendDamage());
                 }
             }
@@ -50,7 +47,6 @@ namespace POOguerriersAreFiiighting
             {
                 if (teamAAlive[i].GetType() == typeof(Ranger))
                 {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
                     teamBAlive[0].ReceiveDamage(teamAAlive[i].SendDamage());
                 }
             }
@@ -62,7 +58,6 @@ namespace POOguerriersAreFiiighting
             {
                 if (teamAAlive[i].GetType() == typeof(Slasher))
                 {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
                     teamBAlive[0].ReceiveDamage(teamAAlive[i].SendDamage());
                 }
             }
@@ -74,7 +69,6 @@ namespace POOguerriersAreFiiighting
             {
                 if (teamAAlive[i].GetType() == typeof(Mage))
                 {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
                     teamBAlive[0].ReceiveDamage(teamAAlive[i].SendDamage());
                 }
             }
@@ -87,7 +81,6 @@ namespace POOguerriersAreFiiighting
                 if (!teammate.LifeStatus())
                 {
                     teamAAlive.Remove(teammate);
-                    Console.WriteLine($"{teammate} has been KOed! \n");
                 }
             }
         }
